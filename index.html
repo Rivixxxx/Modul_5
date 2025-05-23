@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Инструкция по работе с системой Wialon</title>
+    <title>Пошаговая инструкция по работе с системой Wialon</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #333;
             line-height: 1.6;
+            color: #333;
         }
         
         .container {
@@ -19,23 +20,22 @@
         }
         
         h1, h2, h3, h4 {
-            color: #1a56db;
-            margin-top: 1.5em;
-            margin-bottom: 0.75em;
+            color: #2563eb;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
         }
         
         h1 {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid #1a56db;
-            padding-bottom: 0.5rem;
+            font-size: 2rem;
+            border-bottom: 2px solid #2563eb;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
         }
         
         h2 {
-            font-size: 1.8rem;
-            border-left: 5px solid #1a56db;
-            padding-left: 10px;
+            font-size: 1.75rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 5px;
         }
         
         h3 {
@@ -43,1193 +43,913 @@
         }
         
         h4 {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
         }
         
-        img {
-            max-width: 100%;
-            margin: 15px 0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        ul, ol {
-            margin-left: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        ol li {
-            margin-bottom: 0.75rem;
-        }
-        
-        .note {
-            background-color: #f8f9fa;
-            border-left: 4px solid #ffc107;
-            padding: 1rem;
-            margin: 1rem 0;
-        }
-        
-        .warning {
-            background-color: #f8f9fa;
-            border-left: 4px solid #dc3545;
-            padding: 1rem;
-            margin: 1rem 0;
-        }
-        
-        .success {
-            background-color: #f8f9fa;
-            border-left: 4px solid #28a745;
-            padding: 1rem;
-            margin: 1rem 0;
-        }
-        
-        .table-of-contents {
-            background-color: #f8f9fa;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            padding: 1rem;
-            margin: 2rem 0;
-        }
-        
-        .table-of-contents ul {
-            list-style-type: none;
-            margin-left: 0;
-        }
-        
-        .table-of-contents li {
-            margin-bottom: 0.5rem;
-        }
-        
-        .table-of-contents a {
-            color: #1a56db;
-            text-decoration: none;
-        }
-        
-        .table-of-contents a:hover {
-            text-decoration: underline;
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            background-color: white;
         }
         
         .step {
-            background-color: #f8f9fa;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            padding: 1rem;
-            margin-bottom: 1rem;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-left: 4px solid #3b82f6;
+            background-color: #f8fafc;
         }
         
-        .step-number {
-            display: inline-block;
-            width: 25px;
-            height: 25px;
-            line-height: 25px;
-            text-align: center;
-            background-color: #1a56db;
-            color: white;
-            border-radius: 50%;
-            margin-right: 0.5rem;
+        .alert {
+            padding: 10px 15px;
+            margin: 10px 0;
+            border-radius: 4px;
         }
         
-        .cta-button {
-            display: inline-block;
-            background-color: #1a56db;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 4px;
+        .alert-warning {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .alert-info {
+            background-color: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+        }
+        
+        .alert-success {
+            background-color: #d4edda;
+            border-left: 4px solid #28a745;
+        }
+        
+        .toc {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .toc a {
+            color: #3b82f6;
             text-decoration: none;
+        }
+        
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        
+        .toc-title {
             font-weight: bold;
-            margin-top: 1rem;
-            text-align: center;
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            color: #2563eb;
         }
         
-        .cta-button:hover {
-            background-color: #1e429f;
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 4px;
+            background-color: #3b82f6;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s;
         }
         
-        .image-container {
-            text-align: center;
+        .btn:hover {
+            background-color: #2563eb;
+        }
+        
+        code {
+            background-color: #f1f5f9;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
             margin: 20px 0;
         }
         
-        .image-container img {
-            max-width: 90%;
+        th, td {
+            padding: 10px;
+            border: 1px solid #e2e8f0;
+            text-align: left;
         }
         
-        .image-caption {
-            font-style: italic;
-            color: #666;
-            margin-top: 5px;
-            text-align: center;
+        th {
+            background-color: #f8fafc;
         }
         
-        section {
-            margin-bottom: 40px;
-        }
-        
-        .section-separator {
-            height: 1px;
-            background-color: #e2e8f0;
-            margin: 3rem 0;
+        @media print {
+            .no-print {
+                display: none;
+            }
+            
+            .section {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
         }
     </style>
 </head>
-<body>
+<body class="bg-gray-50">
     <div class="container">
-        <header>
-            <h1>Полное руководство по работе с системой мониторинга Wialon</h1>
-            <p class="text-center text-xl mb-10">Инструкция для новых сотрудников</p>
+        <header class="text-center my-8">
+            <h1 class="text-4xl font-bold">Пошаговая инструкция по работе с системой Wialon</h1>
+            <p class="text-xl text-gray-600 mt-2">Руководство для нового сотрудника</p>
         </header>
-        
-        <div class="table-of-contents">
-            <h3>Содержание</h3>
-            <ul>
-                <li><a href="#intro">1. Введение в систему Wialon</a></li>
-                <li><a href="#login">2. Вход в систему и обзор интерфейса</a></li>
-                <li><a href="#objects">3. Создание объекта (ТС) в системе</a></li>
-                <li><a href="#terminal">4. Назначение терминала и прописывание ID</a></li>
-                <li><a href="#sensors">5. Подключение датчиков</a>
-                    <ul>
-                        <li><a href="#fuel-sensors">5.1. Датчики уровня топлива (ДУТ)</a></li>
-                        <li><a href="#temp-sensors">5.2. Датчики температуры</a></li>
-                        <li><a href="#counter-sensors">5.3. Счетчики</a></li>
+
+        <div class="toc">
+            <div class="toc-title">Содержание</div>
+            <ol class="list-decimal ml-6">
+                <li><a href="#section1">Создание объекта (ТС) в системе Wialon</a></li>
+                <li><a href="#section2">Подключение и настройка датчиков</a>
+                    <ul class="list-disc ml-6">
+                        <li><a href="#section2-1">Подключение ДУТ</a></li>
+                        <li><a href="#section2-2">Датчики температуры</a></li>
+                        <li><a href="#section2-3">Настройка счётчиков</a></li>
                     </ul>
                 </li>
-                <li><a href="#reports">6. Создание отчетов под клиента</a></li>
-                <li><a href="#notifications">7. Настройка уведомлений</a>
-                    <ul>
-                        <li><a href="#event-notifications">7.1. События</a></li>
-                        <li><a href="#excess-notifications">7.2. Превышения</a></li>
-                        <li><a href="#failure-notifications">7.3. Неисправности</a></li>
+                <li><a href="#section3">Тарировка датчиков уровня топлива</a></li>
+                <li><a href="#section4">Создание и настройка геозон</a>
+                    <ul class="list-disc ml-6">
+                        <li><a href="#section4-1">Создание геозоны вручную</a></li>
+                        <li><a href="#section4-2">Создание геозоны по шаблону</a></li>
                     </ul>
                 </li>
-                <li><a href="#geozones">8. Создание геозон</a></li>
-                <li><a href="#calibration">9. Внесение тарировок</a></li>
-                <li><a href="#retranslation">10. Настройка ретрансляции</a></li>
-                <li><a href="#realtime">11. Проверка результатов в реальном времени</a></li>
-                <li><a href="#test">12. Проверочный тест</a></li>
-            </ul>
+                <li><a href="#section5">Создание отчёта под клиента</a></li>
+                <li><a href="#section6">Настройка уведомлений</a>
+                    <ul class="list-disc ml-6">
+                        <li><a href="#section6-1">Уведомления о превышении скорости</a></li>
+                        <li><a href="#section6-2">Уведомления о геозонах</a></li>
+                        <li><a href="#section6-3">Уведомления о заправках и сливах</a></li>
+                        <li><a href="#section6-4">Уведомления о неисправностях</a></li>
+                    </ul>
+                </li>
+                <li><a href="#section7">Настройка ретрансляции данных</a></li>
+            </ol>
         </div>
-        
-        <section id="intro">
-            <h2>1. Введение в систему Wialon</h2>
-            <p>Wialon — это универсальная платформа для спутникового GPS/ГЛОНАСС мониторинга транспорта и других подвижных и стационарных объектов. Система позволяет отслеживать местоположение, скорость, расход топлива, температуру, состояние различных датчиков и другие параметры транспортных средств.</p>
+
+        <section id="section1" class="section">
+            <h2>1. Создание объекта (ТС) в системе Wialon</h2>
             
-            <div class="note">
-                <p><strong>Основные функции Wialon:</strong></p>
-                <ul>
-                    <li>Мониторинг местоположения и состояния объектов в режиме реального времени</li>
-                    <li>Контроль расхода топлива и других ресурсов</li>
-                    <li>Формирование и рассылка различных отчетов</li>
-                    <li>Получение уведомлений о событиях и нарушениях</li>
-                    <li>Определение мест и длительности стоянок и остановок</li>
-                    <li>Контроль соблюдения маршрутов и графиков движения</li>
-                </ul>
-            </div>
-            
-            <div class="image-container">
-                <img src="https://help.wialon.com/help/wialon-hosting/files/ru/8491446/8491552/3/1628589395583/interface1_2.png" alt="Интерфейс Wialon">
-                <p class="image-caption">Рис. 1.1 — Общий вид интерфейса Wialon</p>
-            </div>
-        </section>
-        
-        <div class="section-separator"></div>
-        
-        <section id="login">
-            <h2>2. Вход в систему и обзор интерфейса</h2>
-            
-            <h3>Вход в систему</h3>
-            <div class="step">
-                <span class="step-number">1</span>
-                <span>Откройте браузер и перейдите по адресу <strong>hosting.wialon.com</strong> или используйте адрес, предоставленный вашим администратором.</span>
+            <div class="alert alert-info">
+                <i class="fas fa-info-circle"></i> <strong>Информация:</strong> Объект в системе Wialon — это транспортное средство, техника, человек или животное, за которыми ведется наблюдение.
             </div>
             
             <div class="step">
-                <span class="step-number">2</span>
-                <span>Введите логин и пароль, предоставленные администратором системы.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">3</span>
-                <span>Нажмите кнопку «Войти».</span>
-            </div>
-            
-            <div class="warning">
-                <p><strong>Важно!</strong> Не передавайте свои учетные данные другим лицам. Для каждого сотрудника должна быть создана отдельная учетная запись с соответствующими правами доступа.</p>
-            </div>
-            
-            <h3>Обзор интерфейса</h3>
-            <p>После входа в систему вы увидите основной интерфейс Wialon, который состоит из следующих элементов:</p>
-            
-            <ul>
-                <li><strong>Верхняя панель:</strong> содержит основные разделы системы (Мониторинг, Сообщения, Треки, Отчеты, Уведомления, Геозоны и т.д.)</li>
-                <li><strong>Левая панель:</strong> показывает список объектов, групп и т.д.</li>
-                <li><strong>Основная область:</strong> отображает карту с объектами и их перемещениями</li>
-                <li><strong>Нижняя панель:</strong> содержит дополнительные инструменты и информацию</li>
-            </ul>
-            
-            <div class="image-container">
-                <img src="https://help.wialon.com/help/wialon-hosting/files/ru/7461344/28408395/3/1711703664705/cms_int2_ru.png" alt="Интерфейс управления Wialon">
-                <p class="image-caption">Рис. 2.1 — Интерфейс управления Wialon</p>
-            </div>
-        </section>
-        
-        <div class="section-separator"></div>
-        
-        <section id="objects">
-            <h2>3. Создание объекта (ТС) в системе</h2>
-            
-            <p>Объект в системе Wialon — это любое устройство или транспортное средство, которое необходимо отслеживать. Для создания нового объекта выполните следующие действия:</p>
-            
-            <div class="step">
-                <span class="step-number">1</span>
-                <span>С помощью переключателя выберите режим <strong>Объекты</strong> и нажмите на кнопку <strong>Создать</strong>.</span>
-            </div>
-            
-            <div class="image-container">
-                <img src="https://help.wialon.com/ru/spaces/wialon-hosting/user-guide/monitoring-system/units/assets/unit_create1_ru.png" alt="Создание объекта">
-                <p class="image-caption">Рис. 3.1 — Кнопка создания объекта</p>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">2</span>
-                <span>Укажите свойства объекта. Для подключения объекта к системе необходимо заполнить как минимум следующие поля на вкладке <strong>Основное</strong>:</span>
-                <ul class="ml-10 mt-2">
-                    <li>Имя (например, «ГАЗель г/н А123БВ»)</li>
-                    <li>Тип устройства (выберите из списка производителя и модель трекера)</li>
-                    <li>Уникальный ID (идентификатор устройства)</li>
-                </ul>
-            </div>
-            
-            <div class="note">
-                <p>После выбора типа устройства в поле <strong>Адрес сервера</strong> автоматически указывается IP-адрес сервера и порт для этого типа. Настройте ваше устройство таким образом, чтобы оно отправляло данные на указанный адрес.</p>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">3</span>
-                <span>Сохраните изменения, нажав на кнопку <strong>Сохранить</strong>.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">4</span>
-                <span>Перейдите на вкладку <strong>Мониторинг</strong>, куда автоматически добавляются созданные объекты. Проверьте, что объект подключен и отправляет сообщения в систему. В этом случае в списке в столбце <strong>Состояние соединения</strong> для него показывается зеленый маркер.</span>
-            </div>
-            
-            <div class="image-container">
-                <img src="https://help.wialon.com/ru/spaces/wialon-hosting/user-guide/monitoring-system/units/assets/unit_create3_ru.png" alt="Объект в мониторинге">
-                <p class="image-caption">Рис. 3.2 — Объект отображается в мониторинге</p>
-            </div>
-            
-            <div class="success">
-                <p><strong>Совет:</strong> Вы также можете создать объект из файла WLP, если у вас есть готовые настройки. Для этого нажмите на кнопку <strong>Создать из WLP</strong>, выберите файл и параметры, которые хотите добавить в свойства объекта.</p>
-            </div>
-        </section>
-        
-        <div class="section-separator"></div>
-        
-        <section id="terminal">
-            <h2>4. Назначение терминала и прописывание ID</h2>
-            
-            <p>После создания объекта необходимо правильно назначить и настроить терминал (GPS-трекер), чтобы данные корректно поступали в систему.</p>
-            
-            <h3>Назначение терминала</h3>
-            
-            <div class="step">
-                <span class="step-number">1</span>
-                <span>В списке объектов выберите нужный объект и откройте его свойства (двойной клик или кнопка редактирования).</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">2</span>
-                <span>На вкладке <strong>Основное</strong> в выпадающем списке <strong>Тип устройства</strong> выберите модель установленного GPS-трекера.</span>
-            </div>
-            
-            <div class="image-container">
-                <img src="https://www.gpskurs.ru/sites/default/files/tovary/wialon._opisanie_programmy_monitoringa_1.png" alt="Назначение типа устройства">
-                <p class="image-caption">Рис. 4.1 — Выбор типа устройства в свойствах объекта</p>
-            </div>
-            
-            <div class="note">
-                <p>После выбора типа устройства, в поле <strong>Адрес сервера</strong> автоматически указывается IP-адрес сервера и порт для этого типа устройства. Эти данные необходимо использовать при настройке самого трекера.</p>
-            </div>
-            
-            <h3>Прописывание ID</h3>
-            
-            <div class="step">
-                <span class="step-number">1</span>
-                <span>В поле <strong>Уникальный ID</strong> введите уникальный идентификатор устройства. Обычно это IMEI трекера или другой уникальный идентификатор, в зависимости от типа устройства.</span>
-            </div>
-            
-            <div class="warning">
-                <p><strong>Важно!</strong> ID должен совпадать с тем, что настроен в самом трекере. Некоторые устройства могут требовать дополнительной настройки через специальное программное обеспечение от производителя.</p>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">2</span>
-                <span>Сохраните изменения, нажав кнопку <strong>Сохранить</strong>.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">3</span>
-                <span>Проверьте соединение с устройством. На вкладке <strong>Мониторинг</strong> у объекта должен появиться зеленый индикатор, если соединение успешно установлено.</span>
-            </div>
-            
-            <div class="success">
-                <p><strong>Совет:</strong> Если соединение не устанавливается, проверьте следующее:</p>
-                <ul>
-                    <li>Правильно ли указан ID устройства в системе и настройках трекера</li>
-                    <li>Подключено ли питание и GPRS/GSM к трекеру</li>
-                    <li>Правильно ли указаны настройки сервера и порта в трекере</li>
-                    <li>Есть ли у SIM-карты доступ к интернету и положительный баланс</li>
-                </ul>
-            </div>
-        </section>
-        
-        <div class="section-separator"></div>
-        
-        <section id="sensors">
-            <h2>5. Подключение датчиков</h2>
-            
-            <p>Датчики в системе Wialon позволяют собирать и анализировать различные данные с объекта: уровень топлива, температуру, обороты двигателя и многое другое. Рассмотрим подключение основных типов датчиков.</p>
-            
-            <div class="note">
-                <p>Для работы с датчиками необходимы следующие права:</p>
-                <ul>
-                    <li>Просмотр элемента и его основных свойств — чтобы видеть вкладку</li>
-                    <li>Создание, редактирование и удаление датчиков — чтобы редактировать свойства датчиков</li>
-                </ul>
-            </div>
-            
-            <h3>Общая процедура создания датчика</h3>
-            
-            <div class="step">
-                <span class="step-number">1</span>
-                <span>Откройте свойства объекта и перейдите на вкладку <strong>Датчики</strong>.</span>
-            </div>
-            
-            <div class="image-container">
-                <img src="https://help.wialon.com/ru/spaces/wialon-hosting/user-guide/monitoring-system/units/unit-properties/assets/unit_sensors_ru.png" alt="Вкладка датчиков">
-                <p class="image-caption">Рис. 5.1 — Вкладка датчиков в свойствах объекта</p>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">2</span>
-                <span>Нажмите кнопку <strong>Создать</strong> для добавления нового датчика.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">3</span>
-                <span>Заполните необходимые поля датчика:</span>
-                <ul class="ml-10 mt-2">
-                    <li><strong>Имя</strong> — название датчика (например, «ДУТ основной бак»)</li>
-                    <li><strong>Тип</strong> — тип датчика (например, «Датчик уровня топлива», «Датчик температуры» и т.д.)</li>
-                    <li><strong>Параметр</strong> — параметр, получаемый от устройства (например, «fuel1», «temp1» и т.д.)</li>
-                    <li><strong>Единица измерения</strong> — единица измерения показаний датчика (л, °C и т.д.)</li>
+                <h4>Шаг 1: Доступ к системе и проверка прав</h4>
+                <p>Для создания объекта необходимо:</p>
+                <ul class="list-disc ml-6">
+                    <li>Иметь включенную опцию <strong>"Может создавать элементы"</strong> в свойствах пользователя</li>
+                    <li>Убедиться, что в свойствах учетной записи включена услуга <strong>"Объекты: Доступ"</strong></li>
                 </ul>
             </div>
             
             <div class="step">
-                <span class="step-number">4</span>
-                <span>Настройте дополнительные параметры датчика в зависимости от его типа.</span>
+                <h4>Шаг 2: Создание нового объекта</h4>
+                <ol class="list-decimal ml-6">
+                    <li>С помощью переключателя выберите режим <strong>Объекты</strong></li>
+                    <li>Нажмите кнопку <strong>Создать</strong></li>
+                    <img src="./assets/w1.png" alt="Создание объекта" class="my-4 rounded shadow">
+                </ol>
             </div>
             
             <div class="step">
-                <span class="step-number">5</span>
-                <span>Нажмите <strong>Сохранить</strong> для сохранения настроек датчика.</span>
+                <h4>Шаг 3: Заполнение свойств объекта</h4>
+                <p>На вкладке <strong>Основное</strong> заполните обязательные поля:</p>
+                <ul class="list-disc ml-6">
+                    <li><strong>Имя</strong> — название объекта (ТС)</li>
+                    <li><strong>Тип устройства</strong> — выбор из выпадающего списка поддерживаемых устройств</li>
+                    <li><strong>Уникальный ID</strong> — идентификатор трекера (обычно IMEI или серийный номер)</li>
+                </ul>
+                <img src="./assets/w2.png" alt="Заполнение свойств" class="my-4 rounded shadow">
+                <p>После выбора типа устройства, в поле <strong>Адрес сервера</strong> автоматически указывается IP-адрес сервера и порт для этого типа.</p>
             </div>
             
-            <section id="fuel-sensors">
-                <h3>5.1 Датчики уровня топлива (ДУТ)</h3>
-                
-                <p>Датчики уровня топлива (ДУТ) используются для контроля количества топлива в баке и анализа его расхода.</p>
-                
-                <div class="step">
-                    <span class="step-number">1</span>
-                    <span>При создании датчика выберите тип <strong>Датчик уровня топлива</strong>.</span>
-                </div>
-                
-                <div class="step">
-                    <span class="step-number">2</span>
-                    <span>В поле <strong>Параметр</strong> укажите параметр, по которому приходят данные от ДУТ (обычно это «fuelX», где X — номер датчика).</span>
-                </div>
-                
-                <div class="step">
-                    <span class="step-number">3</span>
-                    <span>Настройте <strong>Таблицу расчета</strong> — это соответствие между значениями датчика и реальным объемом топлива. Заполняется на основе тарировочной таблицы.</span>
-                </div>
-                
-                <div class="image-container">
-                    <img src="https://help.wialon.com/ru/spaces/wialon-hosting/user-guide/monitoring-system/units/unit-properties/sensors/assets/ct1_ru.png" alt="Таблица расчета ДУТ">
-                    <p class="image-caption">Рис. 5.2 — Таблица расчета для датчика уровня топлива</p>
-                </div>
-                
-                <div class="step">
-                    <span class="step-number">4</span>
-                    <span>Настройте дополнительные параметры ДУТ на соответствующей вкладке:</span>
-                    <ul class="ml-10 mt-2">
-                        <li><strong>Расчет заправок</strong> — параметры определения заправок</li>
-                        <li><strong>Расчет сливов</strong> — параметры определения сливов</li>
-                        <li><strong>Порог фильтрации</strong> — для отсечения незначительных колебаний</li>
-                    </ul>
-                </div>
-                
-                <div class="image-container">
-                    <img src="https://help.wialon.com/help/wialon-hosting/files/ru/8136616/46649953/4/1721253621598/fls_settings_ru.png" alt="Настройки ДУТ">
-                    <p class="image-caption">Рис. 5.3 — Дополнительные настройки датчика уровня топлива</p>
-                </div>
-            </section>
+            <div class="step">
+                <h4>Шаг 4: Сохранение объекта</h4>
+                <p>Нажмите кнопку <strong>Сохранить</strong>, чтобы завершить создание объекта.</p>
+            </div>
             
-            <section id="temp-sensors">
-                <h3>5.2 Датчики температуры</h3>
-                
-                <p>Датчики температуры позволяют контролировать температуру в различных зонах транспортного средства (например, в рефрижераторе).</p>
-                
-                <div class="step">
-                    <span class="step-number">1</span>
-                    <span>При создании датчика выберите тип <strong>Датчик температуры</strong>.</span>
-                </div>
-                
-                <div class="step">
-                    <span class="step-number">2</span>
-                    <span>В поле <strong>Параметр</strong> укажите параметр, по которому приходят данные от датчика температуры (обычно это «tempX», где X — номер датчика).</span>
-                </div>
-                
-                <div class="step">
-                    <span class="step-number">3</span>
-                    <span>При необходимости настройте <strong>Таблицу расчета</strong> для преобразования значений датчика в градусы Цельсия.</span>
-                </div>
-                
-                <div class="step">
-                    <span class="step-number">4</span>
-                    <span>Вы можете настроить пользовательские интервалы для цветового выделения различных температурных диапазонов.</span>
-                </div>
-            </section>
+            <div class="step">
+                <h4>Шаг 5: Проверка подключения</h4>
+                <p>Перейдите на вкладку <strong>Мониторинг</strong>, куда автоматически добавляются созданные объекты.</p>
+                <p>Убедитесь, что объект подключен и отправляет сообщения в систему. В этом случае в списке в столбце <strong>Состояние соединения</strong> для него показывается зеленый маркер.</p>
+                <img src="./assets/w3.png" alt="Проверка подключения" class="my-4 rounded shadow">
+            </div>
             
-            <section id="counter-sensors">
-                <h3>5.3 Счетчики</h3>
-                
-                <p>Счетчики используются для подсчета импульсов или других кумулятивных значений (например, моточасы, расходомеры и т.д.).</p>
-                
-                <div class="step">
-                    <span class="step-number">1</span>
-                    <span>При создании датчика выберите тип <strong>Счетчик</strong> или <strong>Абсолютный счетчик</strong> в зависимости от типа получаемых данных.</span>
-                </div>
-                
-                <div class="step">
-                    <span class="step-number">2</span>
-                    <span>В поле <strong>Параметр</strong> укажите параметр, по которому приходят данные от счетчика.</span>
-                </div>
-                
-                <div class="step">
-                    <span class="step-number">3</span>
-                    <span>Настройте коэффициент для пересчета импульсов в нужные единицы измерения.</span>
-                </div>
-                
-                <div class="note">
-                    <p><strong>Обратите внимание:</strong> Разница между обычным и абсолютным счетчиком заключается в том, что обычный счетчик подсчитывает приращение с момента создания датчика, а абсолютный — отображает абсолютные значения, приходящие от устройства.</p>
-                </div>
-            </section>
-            
-            <div class="success">
-                <p><strong>Совет:</strong> Для удобства добавления стандартных датчиков можно использовать список <strong>Обычно используются</strong>, который содержит наиболее популярные настройки датчиков для выбранного типа устройства.</p>
+            <div class="alert alert-warning">
+                <i class="fas fa-exclamation-triangle"></i> <strong>Важно:</strong> Нельзя создавать объекты в учетной записи верхнего уровня, и не рекомендуется создавать их в учетной записи с правами дилера.
             </div>
         </section>
-        
-        <div class="section-separator"></div>
-        
-        <section id="reports">
-            <h2>6. Создание отчетов под клиента</h2>
+
+        <section id="section2" class="section">
+            <h2>2. Подключение и настройка датчиков</h2>
             
-            <p>Отчеты в Wialon позволяют анализировать различные аспекты работы транспорта: маршруты, расход топлива, стоянки, превышения скорости и т.д. Для создания отчета под клиента необходимо настроить шаблон отчета.</p>
-            
-            <div class="step">
-                <span class="step-number">1</span>
-                <span>В верхней панели выберите вкладку <strong>Отчеты</strong> или выберите пункт <strong>Отчеты</strong> в главном меню.</span>
-            </div>
-            
-            <div class="image-container">
-                <img src="https://help.wialon.com/ru/spaces/wialon-hosting/user-guide/monitoring-system/reports/assets/templates_ru.png" alt="Создание отчета">
-                <p class="image-caption">Рис. 6.1 — Раздел отчетов в Wialon</p>
+            <div class="alert alert-info">
+                <i class="fas fa-info-circle"></i> <strong>Информация:</strong> Для работы с датчиками необходимы права доступа: "Просмотр элемента и его основных свойств" и "Создание, редактирование и удаление датчиков". Также услуга "Объекты: Датчики" должна быть включена в свойствах учетной записи.
             </div>
             
             <div class="step">
-                <span class="step-number">2</span>
-                <span>В разделе <strong>Шаблоны отчетов</strong> нажмите на <strong>Создать</strong>.</span>
+                <h4>Шаг 1: Доступ к настройкам датчиков</h4>
+                <ol class="list-decimal ml-6">
+                    <li>В списке объектов выберите нужный объект</li>
+                    <li>Нажмите на иконку редактирования свойств (значок карандаша)</li>
+                    <li>Перейдите на вкладку <strong>Датчики</strong></li>
+                </ol>
+                <img src="./assets/w4.png" alt="Вкладка Датчики" class="my-4 rounded shadow">
             </div>
             
             <div class="step">
-                <span class="step-number">3</span>
-                <span>Выберите ресурс, в котором должен храниться шаблон, если вам доступно более одного ресурса.</span>
+                <h4>Шаг 2: Добавление датчика</h4>
+                <p>Вы можете добавлять датчики двумя способами:</p>
+                <ol class="list-decimal ml-6">
+                    <li><strong>Из списка "Обычно используются"</strong> — для популярных датчиков, поддерживаемых вашим типом устройства</li>
+                    <li><strong>Создание датчиков вручную</strong> — для создания пользовательских датчиков</li>
+                </ol>
             </div>
             
-            <div class="step">
-                <span class="step-number">4</span>
-                <span>Укажите имя отчета. Под этим именем он будет показываться в списке шаблонов.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">5</span>
-                <span>Выберите тип отчета, то есть элемент, по которому должен выполняться отчет: объект, группа объектов и т.д.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">6</span>
-                <span>На вкладке <strong>Содержимое</strong> нажмите <strong>Новая таблица</strong>, чтобы добавить таблицу. В ней будут представлены основные данные отчета.</span>
-            </div>
-            
-            <div class="image-container">
-                <img src="https://help.wialon.com/ru/spaces/wialon-hosting/user-guide/monitoring-system/reports/assets/templates3_ru.png" alt="Настройка таблицы отчета">
-                <p class="image-caption">Рис. 6.2 — Добавление и настройка таблицы отчета</p>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">7</span>
-                <span>Укажите имя и тип таблицы. Тип таблицы отражает категорию данных, представляемых в отчете: например, информация о топливе, стоянки, поездки.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">8</span>
-                <span>Выберите столбцы, которые вы хотите увидеть в отчете. Вы можете менять их названия, а также создать произвольные столбцы.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">9</span>
-                <span>Настройте формат таблицы: группировка, сортировка, фильтрация, детализация, нумерация строк и пр.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">10</span>
-                <span>Нажмите <strong>ОК</strong>, чтобы сохранить настройки таблицы и выйти из них.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">11</span>
-                <span>При необходимости добавьте график и настройте его вид.</span>
-            </div>
-            
-            <div class="image-container">
-                <img src="https://help.wialon.com/ru/spaces/wialon-hosting/user-guide/monitoring-system/reports/assets/templates5_ru.png" alt="Добавление графика">
-                <p class="image-caption">Рис. 6.3 — Добавление графика в отчет</p>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">12</span>
-                <span>Добавьте статистику, если вам необходима сводная информация о самом отчете или суммарные показатели.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">13</span>
-                <span>Добавьте карту, если она доступна для вашего типа отчетов, и настройте ее внешний вид.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">14</span>
-                <span>Если отчет должен постоянно выполняться только по определенным элементам (только некоторым объектам, водителям и пр.), выберите их на вкладке <strong>Привязка</strong>.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">15</span>
-                <span>Сохраните шаблон.</span>
-            </div>
-            
-            <h3>Выполнение отчета</h3>
-            
-            <div class="step">
-                <span class="step-number">1</span>
-                <span>Выберите созданный шаблон отчета из списка.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">2</span>
-                <span>Выберите объект или группу объектов, по которым нужно построить отчет.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">3</span>
-                <span>Укажите период, за который нужно построить отчет.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">4</span>
-                <span>Нажмите кнопку <strong>Выполнить</strong>.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">5</span>
-                <span>После формирования отчета вы можете просмотреть его онлайн, экспортировать в различные форматы (PDF, Excel и др.) или отправить по электронной почте.</span>
-            </div>
-            
-            <div class="success">
-                <p><strong>Совет:</strong> Для автоматической отправки отчетов по расписанию можно использовать функцию <strong>Задания</strong>. С ее помощью можно настроить регулярное формирование и отправку отчетов на электронную почту клиента.</p>
-            </div>
-        </section>
-        
-        <div class="section-separator"></div>
-        
-        <section id="notifications">
-            <h2>7. Настройка уведомлений</h2>
-            
-            <p>Уведомления позволяют оперативно получать информацию о различных событиях и нарушениях, происходящих с объектами мониторинга. Настроим различные типы уведомлений.</p>
-            
-            <div class="step">
-                <span class="step-number">1</span>
-                <span>В верхней панели выберите вкладку <strong>Уведомления</strong>.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">2</span>
-                <span>Нажмите кнопку <strong>Создать</strong> для создания нового уведомления.</span>
-            </div>
-            
-            <div class="image-container">
-                <img src="https://help.wialon.com/ru/spaces/wialon-hosting/user-guide/monitoring-system/assets/notifications_ru.png" alt="Уведомления">
-                <p class="image-caption">Рис. 7.1 — Раздел уведомлений в Wialon</p>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">3</span>
-                <span>Выберите объект, для которого создается уведомление.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">4</span>
-                <span>Выберите тип уведомления — условие его срабатывания.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">5</span>
-                <span>Выберите тип действия — что должно произойти при срабатывании уведомления (отправка SMS, email, показ всплывающего окна и т.д.).</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">6</span>
-                <span>Настройте параметры уведомления в зависимости от выбранного типа.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">7</span>
-                <span>Установите расписание активности уведомления, если необходимо.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">8</span>
-                <span>Нажмите <strong>Сохранить</strong>.</span>
-            </div>
-            
-            <section id="event-notifications">
-                <h3>7.1 Уведомления о событиях</h3>
-                
-                <p>К событиям могут относиться: начало/конец движения, въезд в геозону, выезд из геозоны, назначение водителя и т.д.</p>
+            <div id="section2-1" class="mt-6">
+                <h3>2.1 Подключение ДУТ (датчика уровня топлива)</h3>
                 
                 <div class="step">
-                    <span class="step-number">1</span>
-                    <span>При создании уведомления выберите соответствующий тип события, например, <strong>Геозона</strong>.</span>
+                    <h4>Шаг 1: Создание датчика ДУТ</h4>
+                    <ol class="list-decimal ml-6">
+                        <li>На вкладке <strong>Датчики</strong> нажмите кнопку <strong>Создать</strong></li>
+                        <li>В поле <strong>Имя</strong> введите название датчика (например, "ДУТ основной бак")</li>
+                        <li>В поле <strong>Тип</strong> выберите <strong>Датчик уровня топлива</strong></li>
+                        <li>В поле <strong>Единица измерения</strong> выберите <strong>л</strong> (литры)</li>
+                    </ol>
                 </div>
                 
                 <div class="step">
-                    <span class="step-number">2</span>
-                    <span>Настройте параметры уведомления:</span>
-                    <ul class="ml-10 mt-2">
-                        <li>Выберите геозону или группу геозон</li>
-                        <li>Укажите, должно ли срабатывать уведомление при въезде в геозону, выезде из неё или в обоих случаях</li>
+                    <h4>Шаг 2: Настройка параметра датчика</h4>
+                    <ol class="list-decimal ml-6">
+                        <li>В поле <strong>Параметр</strong> введите имя параметра в зависимости от типа устройства (например, adc1, fuel, can_fls и т.п.)</li>
+                        <li>Если вы не знаете точное имя параметра:
+                            <ul class="list-disc ml-6">
+                                <li>Временно закройте настройки</li>
+                                <li>На вкладке <strong>Сообщения</strong> выберите объект и запросите последние сообщения</li>
+                                <li>Найдите в них параметр, отвечающий за показания ДУТ</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+                
+                <div class="step">
+                    <h4>Шаг 3: Настройка расчета и фильтрации</h4>
+                    <ol class="list-decimal ml-6">
+                        <li>Включите опцию <strong>Рассчитывать данные по датчику</strong></li>
+                        <li>Выберите <strong>Тип фильтрации</strong>:
+                            <ul class="list-disc ml-6">
+                                <li><strong>Нет</strong> — если значения не требуют фильтрации</li>
+                                <li><strong>Медианная фильтрация</strong> — для сглаживания данных (укажите степень фильтрации)</li>
+                                <li><strong>Адаптивная медианная фильтрация</strong> — для автоматического подбора оптимальной степени фильтрации</li>
+                            </ul>
+                        </li>
+                        <li>Укажите <strong>Минимальный объем заправки</strong> и <strong>Минимальный объем слива</strong></li>
+                        <li>При необходимости настройте <strong>Расширенные настройки</strong></li>
+                    </ol>
+                </div>
+                
+                <div class="step">
+                    <h4>Шаг 4: Настройка таблицы расчета</h4>
+                    <p>Перейдите на вкладку <strong>Таблица расчета</strong> и заполните значения тарировочной таблицы (см. раздел "Тарировка датчиков уровня топлива").</p>
+                </div>
+                
+                <div class="step">
+                    <h4>Шаг 5: Сохранение датчика</h4>
+                    <p>Нажмите кнопку <strong>Сохранить</strong>, чтобы завершить создание датчика ДУТ.</p>
+                </div>
+            </div>
+            
+            <div id="section2-2" class="mt-6">
+                <h3>2.2 Подключение датчика температуры</h3>
+                
+                <div class="step">
+                    <h4>Шаг 1: Создание датчика температуры</h4>
+                    <ol class="list-decimal ml-6">
+                        <li>На вкладке <strong>Датчики</strong> нажмите кнопку <strong>Создать</strong></li>
+                        <li>В поле <strong>Имя</strong> введите название датчика (например, "Температура двигателя")</li>
+                        <li>В поле <strong>Тип</strong> выберите <strong>Датчик температуры</strong></li>
+                        <li>В поле <strong>Единица измерения</strong> выберите <strong>°C</strong> (градусы Цельсия)</li>
+                    </ol>
+                </div>
+                
+                <div class="step">
+                    <h4>Шаг 2: Настройка параметра датчика</h4>
+                    <p>В поле <strong>Параметр</strong> введите имя параметра в зависимости от типа устройства (например, tempsens, engine_temp, can_temperature и т.п.)</p>
+                </div>
+                
+                <div class="step">
+                    <h4>Шаг 3: Настройка таблицы расчета (если необходимо)</h4>
+                    <p>Если датчик передает "сырые" значения, которые требуют пересчета в градусы, настройте таблицу расчета на соответствующей вкладке.</p>
+                </div>
+                
+                <div class="step">
+                    <h4>Шаг 4: Сохранение датчика</h4>
+                    <p>Нажмите кнопку <strong>Сохранить</strong>, чтобы завершить создание датчика температуры.</p>
+                </div>
+            </div>
+            
+            <div id="section2-3" class="mt-6">
+                <h3>2.3 Настройка счётчиков</h3>
+                
+                <div class="step">
+                    <h4>Шаг 1: Создание счётчика</h4>
+                    <ol class="list-decimal ml-6">
+                        <li>На вкладке <strong>Датчики</strong> нажмите кнопку <strong>Создать</strong></li>
+                        <li>В поле <strong>Имя</strong> введите название счётчика (например, "Моточасы", "Счетчик пассажиров" и т.д.)</li>
+                        <li>В поле <strong>Тип</strong> выберите соответствующий тип счётчика:
+                            <ul class="list-disc ml-6">
+                                <li>Датчик моточасов</li>
+                                <li>Датчик счетчика</li>
+                                <li>Импульсный счетчик</li>
+                            </ul>
+                        </li>
+                        <li>В поле <strong>Единица измерения</strong> выберите соответствующую единицу измерения</li>
+                    </ol>
+                </div>
+                
+                <div class="step">
+                    <h4>Шаг 2: Настройка параметра счётчика</h4>
+                    <p>В поле <strong>Параметр</strong> введите имя параметра в зависимости от типа устройства.</p>
+                </div>
+                
+                <div class="step">
+                    <h4>Шаг 3: Настройка дополнительных параметров счётчика</h4>
+                    <p>В зависимости от типа счётчика, настройте дополнительные параметры:</p>
+                    <ul class="list-disc ml-6">
+                        <li>Для импульсных счётчиков — укажите коэффициент пересчета импульсов</li>
+                        <li>Для моточасов — настройте валидацию по показаниям других датчиков</li>
                     </ul>
                 </div>
                 
                 <div class="step">
-                    <span class="step-number">3</span>
-                    <span>Выберите способ доставки уведомления (email, SMS, всплывающее окно и т.д.) и настройте его параметры.</span>
+                    <h4>Шаг 4: Сохранение счётчика</h4>
+                    <p>Нажмите кнопку <strong>Сохранить</strong>, чтобы завершить создание счётчика.</p>
                 </div>
-            </section>
+            </div>
+        </section>
+
+        <section id="section3" class="section">
+            <h2>3. Тарировка датчиков уровня топлива</h2>
             
-            <section id="excess-notifications">
-                <h3>7.2 Уведомления о превышениях</h3>
-                
-                <p>Уведомления о превышениях помогают контролировать соблюдение установленных лимитов: скорость, температура, обороты двигателя и т.д.</p>
+            <div class="alert alert-info">
+                <i class="fas fa-info-circle"></i> <strong>Информация:</strong> Тарировка — это процедура создания таблицы соответствия между "сырыми" значениями датчика и реальным объемом топлива в баке.
+            </div>
+            
+            <div class="step">
+                <h4>Шаг 1: Подготовка к тарировке</h4>
+                <ol class="list-decimal ml-6">
+                    <li>Опустошите топливный бак. Убедитесь, что аккумулятор автомобиля заряжен и не сядет во время тарировки</li>
+                    <li>Если ДУТ еще не установлен, установите его согласно инструкции</li>
+                    <li>На время тарировки настройте трекер таким образом, чтобы данные сохранялись не реже, чем раз в 10 секунд</li>
+                    <li>Подготовьте таблицу из двух столбцов: X и Y
+                        <ul class="list-disc ml-6">
+                            <li>X — значение напряжения или другого параметра датчика</li>
+                            <li>Y — объем топлива в баке в литрах</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+            
+            <div class="step">
+                <h4>Шаг 2: Проведение тарировки</h4>
+                <ol class="list-decimal ml-6">
+                    <li>Запишите время начала тарировки</li>
+                    <li>В столбец X первой строки таблицы внесите значение параметра до добавления топлива, в столбец Y укажите 0</li>
+                    <li>Разделите весь объем бака на 10-20 частей</li>
+                    <li>Залейте первую порцию топлива</li>
+                    <li>Подождите 2-3 минуты, пока уровень топлива стабилизируется</li>
+                    <li>Запишите объем залитого топлива в столбец Y</li>
+                    <li>Повторяйте шаги 4-6 до полного заполнения бака</li>
+                </ol>
+            </div>
+            
+            <div class="step">
+                <h4>Шаг 3: Получение данных датчика</h4>
+                <ol class="list-decimal ml-6">
+                    <li>В Wialon запросите сообщения от объекта за период тарировки на вкладке <strong>Сообщения</strong></li>
+                    <li>Найдите в сообщениях значения параметра ДУТ для каждой порции топлива</li>
+                    <li>Для каждой точки тарировки рассчитайте среднее значение параметра и запишите его в столбец X таблицы</li>
+                </ol>
+            </div>
+            
+            <div class="step">
+                <h4>Шаг 4: Внесение тарировочных данных в систему</h4>
+                <ol class="list-decimal ml-6">
+                    <li>В свойствах объекта перейдите на вкладку <strong>Датчики</strong></li>
+                    <li>Выберите датчик уровня топлива или создайте новый</li>
+                    <li>Перейдите на вкладку <strong>Таблица расчета</strong></li>
+                    <li>Включите инструмент <strong>Пары XY</strong> для автоматического заполнения таблицы</li>
+                    <li>Введите пары значений X и Y из вашей тарировочной таблицы в формате "X1,Y1;X2,Y2;X3,Y3;..." (например, "100,0;150,10;200,20;...")</li>
+                    <li>Нажмите кнопку <strong>Применить</strong>, чтобы заполнить таблицу расчета</li>
+                </ol>
+            </div>
+            
+            <div class="step">
+                <h4>Шаг 5: Проверка и корректировка</h4>
+                <ol class="list-decimal ml-6">
+                    <li>После внесения данных проверьте, как система отображает уровень топлива</li>
+                    <li>При необходимости скорректируйте отдельные точки в таблице расчета</li>
+                    <li>Сохраните настройки датчика</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="section4" class="section">
+            <h2>4. Создание и настройка геозон</h2>
+            
+            <div class="alert alert-info">
+                <i class="fas fa-info-circle"></i> <strong>Информация:</strong> Геозоны — это определенные области на карте, предназначенные для контроля за перемещением объектов в этих областях или за их пределами.
+            </div>
+            
+            <div id="section4-1">
+                <h3>4.1 Создание геозоны вручную</h3>
                 
                 <div class="step">
-                    <span class="step-number">1</span>
-                    <span>При создании уведомления выберите тип <strong>Превышение скорости</strong> или <strong>Параметр датчика</strong> (если нужно контролировать значения других датчиков).</span>
+                    <h4>Шаг 1: Доступ к созданию геозон</h4>
+                    <ol class="list-decimal ml-6">
+                        <li>Перейдите на вкладку <strong>Геозоны</strong> в верхней панели</li>
+                        <li>Нажмите на кнопку <strong>Создать</strong></li>
+                        <img src="./assets/w5.png" alt="Создание геозоны" class="my-4 rounded shadow">
+                    </ol>
                 </div>
                 
                 <div class="step">
-                    <span class="step-number">2</span>
-                    <span>Настройте параметры уведомления:</span>
-                    <ul class="ml-10 mt-2">
-                        <li>Для превышения скорости укажите пороговое значение (например, 90 км/ч)</li>
-                        <li>Для параметра датчика выберите датчик и укажите условие срабатывания (больше, меньше, равно и т.д.) и пороговое значение</li>
-                        <li>Укажите минимальную продолжительность превышения для срабатывания уведомления (например, 30 секунд)</li>
+                    <h4>Шаг 2: Выбор типа геозоны</h4>
+                    <p>Выберите один из трех типов геозон:</p>
+                    <ul class="list-disc ml-6">
+                        <li><strong>Полигон</strong> — произвольная многоугольная форма</li>
+                        <li><strong>Линия</strong> — линия с заданной шириной</li>
+                        <li><strong>Круг</strong> — окружность с заданным радиусом</li>
+                    </ul>
+                    <img src="./assets/w6.png" alt="Выбор типа геозоны" class="my-4 rounded shadow">
+                </div>
+                
+                <div class="step">
+                    <h4>Шаг 3: Нанесение геозоны на карту</h4>
+                    <p><strong>Для полигона:</strong></p>
+                    <ol class="list-decimal ml-6">
+                        <li>Сделайте двойной щелчок по карте, чтобы поставить первую точку</li>
+                        <li>Поставьте вторую и третью точки аналогичным образом</li>
+                        <li>Продолжайте добавлять точки, формируя необходимую форму</li>
+                    </ol>
+                    
+                    <p><strong>Для линии:</strong></p>
+                    <ol class="list-decimal ml-6">
+                        <li>Сделайте двойной щелчок по карте, чтобы поставить первую точку</li>
+                        <li>Поставьте следующие точки, формируя линию</li>
+                        <li>В свойствах укажите ширину линии</li>
+                    </ol>
+                    
+                    <p><strong>Для круга:</strong></p>
+                    <ol class="list-decimal ml-6">
+                        <li>Сделайте двойной щелчок по карте, чтобы поставить центральную точку</li>
+                        <li>В поле <strong>Радиус</strong> укажите радиус геозоны</li>
+                    </ol>
+                    <img src="./assets/w7.png" alt="Нанесение геозоны" class="my-4 rounded shadow">
+                </div>
+                
+                <div class="step">
+                    <h4>Шаг 4: Указание свойств геозоны</h4>
+                    <ol class="list-decimal ml-6">
+                        <li>Укажите <strong>Имя</strong> геозоны</li>
+                        <li>Выберите <strong>Цвет</strong> для отображения на карте</li>
+                        <li>При необходимости укажите дополнительные свойства (например, описание, цвет подписи)</li>
+                    </ol>
+                    <img src="./assets/w8.png" alt="Свойства геозоны" class="my-4 rounded shadow">
+                </div>
+                
+                <div class="step">
+                    <h4>Шаг 5: Сохранение геозоны</h4>
+                    <p>Нажмите на <strong>Сохранить</strong>, чтобы завершить создание геозоны.</p>
+                    <img src="./assets/w9.png" alt="Сохранение геозоны" class="my-4 rounded shadow">
+                </div>
+            </div>
+            
+            <div id="section4-2" class="mt-6">
+                <h3>4.2 Создание геозоны по шаблону</h3>
+                
+                <div class="step">
+                    <h4>Шаг 1: Импорт геозоны из файла</h4>
+                    <ol class="list-decimal ml-6">
+                        <li>Перейдите на вкладку <strong>Геозоны</strong></li>
+                        <li>Нажмите на кнопку <strong>Импортировать</strong> (или выберите пункт меню <strong>Импорт из KML/KMZ</strong>)</li>
+                        <li>Выберите файл формата KML или KMZ, содержащий геозоны</li>
+                        <li>Следуйте указаниям мастера импорта</li>
+                    </ol>
+                </div>
+                
+                <div class="step">
+                    <h4>Шаг 2: Использование маршрутизатора</h4>
+                    <p>Для создания геозоны в виде линии можно использовать инструмент <strong>Маршрутизатор</strong>:</p>
+                    <ol class="list-decimal ml-6">
+                        <li>В верхней панели выберите <strong>Инструменты</strong> > <strong>Маршрутизатор</strong></li>
+                        <li>Укажите начальную и конечную точки маршрута</li>
+                        <li>После построения маршрута нажмите <strong>Сохранить как геозону</strong></li>
+                        <li>Укажите имя и другие свойства создаваемой геозоны-линии</li>
+                    </ol>
+                </div>
+                
+                <div class="step">
+                    <h4>Шаг 3: Копирование существующих геозон</h4>
+                    <p>Вы также можете создавать геозоны на основе существующих:</p>
+                    <ol class="list-decimal ml-6">
+                        <li>Выберите существующую геозону в списке</li>
+                        <li>Нажмите на кнопку <strong>Копировать</strong></li>
+                        <li>Внесите необходимые изменения в копию геозоны</li>
+                        <li>Сохраните изменения</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <section id="section5" class="section">
+            <h2>5. Создание отчёта под клиента</h2>
+            
+            <div class="alert alert-info">
+                <i class="fas fa-info-circle"></i> <strong>Информация:</strong> Отчеты позволяют объединять и анализировать все доступные данные об объектах, водителях и других элементах системы в удобной форме.
+            </div>
+            
+            <div class="step">
+                <h4>Шаг 1: Переход к созданию шаблона отчета</h4>
+                <ol class="list-decimal ml-6">
+                    <li>Перейдите на вкладку <strong>Отчеты</strong> в верхней панели</li>
+                    <li>Нажмите на кнопку <strong>Создать</strong> в нижней левой части окна</li>
+                </ol>
+                <img src="./assets/w10.png" alt="Создание отчета" class="my-4 rounded shadow">
+            </div>
+            
+            <div class="step">
+                <h4>Шаг 2: Настройка свойств шаблона отчета</h4>
+                <ol class="list-decimal ml-6">
+                    <li>Укажите <strong>Имя</strong> шаблона отчета</li>
+                    <li>Выберите <strong>Тип</strong> шаблона:
+                        <ul class="list-disc ml-6">
+                            <li><strong>Объект</strong> — для анализа данных одного объекта</li>
+                            <li><strong>Группа объектов</strong> — для анализа нескольких объектов одновременно</li>
+                            <li>Другие типы в зависимости от потребностей клиента</li>
+                        </ul>
+                    </li>
+                </ol>
+                <img src="./assets/w11.png" alt="Свойства отчета" class="my-4 rounded shadow">
+            </div>
+            
+            <div class="step">
+                <h4>Шаг 3: Добавление содержимого в отчет</h4>
+                <ol class="list-decimal ml-6">
+                    <li>Перейдите на вкладку <strong>Содержимое</strong></li>
+                    <li>Нажмите на <strong>Добавить таблицу</strong> и выберите нужный тип таблицы:
+                        <ul class="list-disc ml-6">
+                            <li>Таблица <strong>Поездки</strong> — информация о поездках объекта</li>
+                            <li>Таблица <strong>Стоянки</strong> — информация о стоянках</li>
+                            <li>Таблица <strong>Заправки и сливы</strong> — информация о топливе</li>
+                            <li>Таблица <strong>Геозоны</strong> — посещение геозон</li>
+                            <li>Другие таблицы в зависимости от потребностей клиента</li>
+                        </ul>
+                    </li>
+                    <li>Настройте столбцы таблицы:
+                        <ul class="list-disc ml-6">
+                            <li>Выберите нужные столбцы</li>
+                            <li>Измените их порядок при необходимости</li>
+                            <li>Настройте фильтрацию и сортировку данных</li>
+                        </ul>
+                    </li>
+                    <li>При необходимости добавьте <strong>Графики</strong>, чтобы визуализировать данные:
+                        <ul class="list-disc ml-6">
+                            <li>Скорость движения</li>
+                            <li>Уровень топлива</li>
+                            <li>Показания датчиков</li>
+                        </ul>
+                    </li>
+                    <li>Добавьте <strong>Статистику</strong>, чтобы показать суммарные данные</li>
+                </ol>
+            </div>
+            
+            <div class="step">
+                <h4>Шаг 4: Настройка параметров отчета</h4>
+                <ol class="list-decimal ml-6">
+                    <li>Перейдите на вкладку <strong>Настройки</strong></li>
+                    <li>Настройте <strong>Интервал выполнения</strong> — период времени для отчета</li>
+                    <li>Укажите параметры <strong>Детектора поездок</strong> — как система определяет начало/конец поездок</li>
+                    <li>Настройте параметры вывода <strong>Карты</strong> — что отображать на карте</li>
+                    <li>Укажите другие параметры в зависимости от потребностей клиента</li>
+                </ol>
+            </div>
+            
+            <div class="step">
+                <h4>Шаг 5: Привязка объектов</h4>
+                <ol class="list-decimal ml-6">
+                    <li>Перейдите на вкладку <strong>Привязка</strong></li>
+                    <li>Выберите объекты, для которых может использоваться данный отчет</li>
+                </ol>
+            </div>
+            
+            <div class="step">
+                <h4>Шаг 6: Сохранение шаблона отчета</h4>
+                <p>Нажмите на кнопку <strong>Сохранить</strong>, чтобы завершить создание шаблона отчета.</p>
+            </div>
+            
+            <div class="step">
+                <h4>Шаг 7: Выполнение отчета</h4>
+                <ol class="list-decimal ml-6">
+                    <li>В правой части окна выберите созданный шаблон</li>
+                    <li>Укажите интервал времени для отчета</li>
+                    <li>Выберите объекты для отчета</li>
+                    <li>Нажмите на кнопку <strong>Выполнить</strong></li>
+                    <li>После выполнения отчет можно экспортировать в различные форматы (PDF, Excel, HTML и др.)</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="section6" class="section">
+            <h2>6. Настройка уведомлений</h2>
+            
+            <div class="alert alert-info">
+                <i class="fas fa-info-circle"></i> <strong>Информация:</strong> Уведомления позволяют контролировать перемещение объектов, показания датчиков, назначение водителей, прицепов и другие события.
+            </div>
+            
+            <div class="step">
+                <h4>Шаг 1: Доступ к настройке уведомлений</h4>
+                <ol class="list-decimal ml-6">
+                    <li>Перейдите на вкладку <strong>Уведомления</strong> в верхней панели</li>
+                    <li>Нажмите на кнопку <strong>Создать</strong></li>
+                </ol>
+                <img src="./assets/w12.png" alt="Уведомления" class="my-4 rounded shadow">
+            </div>
+            
+            <div class="step">
+                <h4>Шаг 2: Общие настройки уведомления</h4>
+                <ol class="list-decimal ml-6">
+                    <li>Укажите <strong>Имя</strong> уведомления</li>
+                    <li>Выберите объекты, для которых будет работать уведомление</li>
+                    <li>Настройте <strong>Время активности</strong> — когда уведомление будет активно</li>
+                    <li>Выберите <strong>Тип уведомления</strong> (см. ниже)</li>
+                </ol>
+            </div>
+            
+            <div id="section6-1" class="mt-6">
+                <h3>6.1 Уведомления о превышении скорости</h3>
+                
+                <div class="step">
+                    <h4>Шаг 1: Выбор типа уведомления</h4>
+                    <p>Выберите тип уведомления <strong>Скорость</strong></p>
+                    <img src="./assets/w13.png" alt="Уведомление о скорости" class="my-4 rounded shadow">
+                </div>
+                
+                <div class="step">
+                    <h4>Шаг 2: Настройка параметров контроля скорости</h4>
+                    <ol class="list-decimal ml-6">
+                        <li>Выберите <strong>Тип контроля</strong>:
+                            <ul class="list-disc ml-6">
+                                <li><strong>Фиксированное ограничение</strong> — указываются минимальная и максимальная скорость</li>
+                                <li><strong>Ограничение скорости на дорогах</strong> — контроль соблюдения скоростного режима по картам</li>
+                            </ul>
+                        </li>
+                        <li>Укажите минимальную и максимальную скорость или допустимое превышение</li>
+                        <li>При необходимости настройте дополнительные условия:
+                            <ul class="list-disc ml-6">
+                                <li>Контроль назначения водителя</li>
+                                <li>Контроль значения датчика</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+                
+                <div class="step">
+                    <h4>Шаг 3: Настройка текста уведомления</h4>
+                    <p>Укажите текст, который будет показываться при срабатывании уведомления. Используйте специальные теги для вставки данных (например, %SPEED% для отображения скорости).</p>
+                </div>
+                
+                <div class="step">
+                    <h4>Шаг 4: Настройка действий при срабатывании</h4>
+                    <p>Укажите, какие действия нужно выполнить при срабатывании уведомления:</p>
+                    <ul class="list-disc ml-6">
+                        <li>Показать всплывающее сообщение</li>
+                        <li>Отправить SMS или email</li>
+                        <li>Отправить сообщение в Telegram</li>
+                        <li>Зарегистрировать событие в системе</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div id="section6-2" class="mt-6">
+                <h3>6.2 Уведомления о геозонах</h3>
+                
+                <div class="step">
+                    <h4>Шаг 1: Выбор типа уведомления</h4>
+                    <p>Выберите тип уведомления <strong>Геозона</strong></p>
+                    <img src="./assets/w14.png" alt="Уведомление о геозоне" class="my-4 rounded shadow">
+                </div>
+                
+                <div class="step">
+                    <h4>Шаг 2: Настройка условий срабатывания</h4>
+                    <ol class="list-decimal ml-6">
+                        <li>Выберите тип контроля:
+                            <ul class="list-disc ml-6">
+                                <li><strong>В геозоне</strong> — уведомление срабатывает при входе в геозону</li>
+                                <li><strong>Вне геозоны</strong> — уведомление срабатывает при выходе из геозоны</li>
+                            </ul>
+                        </li>
+                        <li>Выберите геозоны, для которых должно срабатывать уведомление</li>
+                        <li>Выберите логический оператор (<strong>И</strong>/<strong>ИЛИ</strong>), если выбрано несколько геозон</li>
+                        <li>При необходимости настройте дополнительные условия (скорость, значения датчиков)</li>
+                    </ol>
+                </div>
+                
+                <div class="step">
+                    <h4>Шаг 3: Настройка текста и действий</h4>
+                    <p>Настройте текст уведомления и действия при срабатывании, как описано в предыдущем разделе.</p>
+                </div>
+            </div>
+            
+            <div id="section6-3" class="mt-6">
+                <h3>6.3 Уведомления о заправках и сливах</h3>
+                
+                <div class="step">
+                    <h4>Шаг 1: Выбор типа уведомления</h4>
+                    <p>Выберите соответствующий тип уведомления:</p>
+                    <ul class="list-disc ml-6">
+                        <li><strong>Заправка</strong> — для контроля заправок</li>
+                        <li><strong>Слив</strong> — для контроля сливов топлива</li>
                     </ul>
                 </div>
                 
-                <div class="image-container">
-                    <img src="https://help.wialon.com/ru/spaces/wialon-hosting/user-guide/monitoring-system/notifications/creating-notifications/assets/n_actions_2_ru.png" alt="Настройка уведомления о превышении">
-                    <p class="image-caption">Рис. 7.2 — Настройка уведомления о превышении</p>
+                <div class="step">
+                    <h4>Шаг 2: Настройка параметров контроля топлива</h4>
+                    <ol class="list-decimal ml-6">
+                        <li>Выберите датчик уровня топлива для контроля</li>
+                        <li>Укажите минимальный объем топлива для срабатывания уведомления</li>
+                        <li>При необходимости настройте дополнительные условия:
+                            <ul class="list-disc ml-6">
+                                <li>Геозоны, в которых должно срабатывать уведомление</li>
+                                <li>Скорость объекта (например, только на стоянке)</li>
+                            </ul>
+                        </li>
+                    </ol>
                 </div>
                 
                 <div class="step">
-                    <span class="step-number">3</span>
-                    <span>Выберите способ доставки уведомления и настройте его параметры.</span>
+                    <h4>Шаг 3: Настройка текста и действий</h4>
+                    <p>Настройте текст уведомления и действия при срабатывании. Используйте специальные теги для отображения объема топлива и других параметров.</p>
                 </div>
-            </section>
+            </div>
             
-            <section id="failure-notifications">
-                <h3>7.3 Уведомления о неисправностях</h3>
-                
-                <p>Уведомления о неисправностях позволяют быстро реагировать на проблемы с транспортным средством или оборудованием.</p>
+            <div id="section6-4" class="mt-6">
+                <h3>6.4 Уведомления о неисправностях</h3>
                 
                 <div class="step">
-                    <span class="step-number">1</span>
-                    <span>При создании уведомления выберите тип <strong>Связь</strong> (для контроля связи с объектом) или <strong>Параметр датчика</strong> (для контроля показаний датчиков).</span>
-                </div>
-                
-                <div class="step">
-                    <span class="step-number">2</span>
-                    <span>Настройте параметры уведомления:</span>
-                    <ul class="ml-10 mt-2">
-                        <li>Для типа <strong>Связь</strong> укажите период отсутствия связи, после которого должно сработать уведомление</li>
-                        <li>Для типа <strong>Параметр датчика</strong> настройте условия, которые будут считаться неисправностью (например, температура двигателя выше определенного значения)</li>
+                    <h4>Шаг 1: Выбор типа уведомления</h4>
+                    <p>Для контроля неисправностей можно использовать различные типы уведомлений:</p>
+                    <ul class="list-disc ml-6">
+                        <li><strong>Значение датчика</strong> — для контроля показаний датчиков</li>
+                        <li><strong>Параметр в сообщении</strong> — для контроля определенных параметров</li>
+                        <li><strong>Потеря связи</strong> — для контроля отсутствия связи с объектом</li>
+                        <li><strong>Цифровой вход</strong> — для контроля состояния входов трекера</li>
                     </ul>
                 </div>
                 
                 <div class="step">
-                    <span class="step-number">3</span>
-                    <span>Выберите способ доставки уведомления и настройте его параметры.</span>
+                    <h4>Шаг 2: Настройка уведомления о показаниях датчика</h4>
+                    <p>Для создания уведомления о неисправности на основе показаний датчика:</p>
+                    <ol class="list-decimal ml-6">
+                        <li>Выберите тип уведомления <strong>Значение датчика</strong></li>
+                        <li>Выберите контролируемый датчик (например, температуры)</li>
+                        <li>Укажите диапазон значений, при которых должно срабатывать уведомление</li>
+                        <li>Выберите тип срабатывания:
+                            <ul class="list-disc ml-6">
+                                <li><strong>Внутри диапазона</strong> — если значение попадает в указанный диапазон</li>
+                                <li><strong>За пределами диапазона</strong> — если значение выходит за указанный диапазон</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <img src="./assets/w15.png" alt="Уведомление о значении датчика" class="my-4 rounded shadow">
                 </div>
                 
-                <div class="success">
-                    <p><strong>Совет:</strong> Для критически важных уведомлений рекомендуется настраивать несколько способов доставки, например, SMS и email. Это повысит вероятность своевременного получения информации.</p>
+                <div class="step">
+                    <h4>Шаг 3: Настройка уведомления о потере связи</h4>
+                    <p>Для создания уведомления о потере связи:</p>
+                    <ol class="list-decimal ml-6">
+                        <li>Выберите тип уведомления <strong>Потеря связи</strong></li>
+                        <li>Выберите, когда должно срабатывать уведомление:
+                            <ul class="list-disc ml-6">
+                                <li>При потере связи</li>
+                                <li>При восстановлении связи</li>
+                            </ul>
+                        </li>
+                        <li>Выберите тип контроля:
+                            <ul class="list-disc ml-6">
+                                <li><strong>Нет координат</strong> — отсутствие данных о местоположении</li>
+                                <li><strong>Нет данных</strong> — отсутствие любых данных от объекта</li>
+                            </ul>
+                        </li>
+                        <li>Укажите интервал времени, по истечении которого должно срабатывать уведомление</li>
+                    </ol>
+                    <img src="./assets/w16.png" alt="Уведомление о потере связи" class="my-4 rounded shadow">
                 </div>
-            </section>
+                
+                <div class="step">
+                    <h4>Шаг 4: Настройка текста и действий</h4>
+                    <p>Настройте текст уведомления и действия при срабатывании, как описано в предыдущих разделах.</p>
+                </div>
+            </div>
         </section>
-        
-        <div class="section-separator"></div>
-        
-        <section id="geozones">
-            <h2>8. Создание геозон</h2>
+
+        <section id="section7" class="section">
+            <h2>7. Настройка ретрансляции данных</h2>
             
-            <p>Геозоны — это выделенные на карте области, которые используются для контроля перемещения объектов, автоматизации отчетов и уведомлений.</p>
-            
-            <div class="step">
-                <span class="step-number">1</span>
-                <span>В верхней панели выберите вкладку <strong>Геозоны</strong>.</span>
+            <div class="alert alert-info">
+                <i class="fas fa-info-circle"></i> <strong>Информация:</strong> Ретрансляторы позволяют передавать сообщения от объектов с вашего сервера на другие серверы или системы в режиме реального времени или за прошедший период.
             </div>
             
             <div class="step">
-                <span class="step-number">2</span>
-                <span>Нажмите на <strong>Создать</strong> на вкладке <strong>Геозоны</strong>.</span>
-            </div>
-            
-            <div class="image-container">
-                <img src="https://help.wialon.com/ru/spaces/wialon-hosting/user-guide/monitoring-system/geofences/assets/geofences2_ru.png" alt="Создание геозоны">
-                <p class="image-caption">Рис. 8.1 — Создание геозоны в Wialon</p>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">3</span>
-                <span>Выберите тип геозоны: полигон, линия или круг.</span>
-            </div>
-            
-            <div class="image-container">
-                <img src="https://help.wialon.com/ru/spaces/wialon-hosting/user-guide/monitoring-system/geofences/assets/geofences3_ru.png" alt="Выбор типа геозоны">
-                <p class="image-caption">Рис. 8.2 — Выбор типа геозоны</p>
-            </div>
-            
-            <h3>Создание геозоны типа «Полигон»</h3>
-            
-            <div class="step">
-                <span class="step-number">1</span>
-                <span>Сделайте двойной щелчок по карте, чтобы поставить первую точку.</span>
+                <h4>Шаг 1: Доступ к настройкам ретрансляции</h4>
+                <ol class="list-decimal ml-6">
+                    <li>Перейдите в <strong>Систему управления</strong> (CMS Manager)</li>
+                    <li>Выберите раздел <strong>Ретрансляторы</strong></li>
+                    <li>Нажмите на кнопку <strong>Создать ретранслятор</strong></li>
+                </ol>
+                <img src="./assets/w17.png" alt="Раздел Ретрансляторы" class="my-4 rounded shadow">
             </div>
             
             <div class="step">
-                <span class="step-number">2</span>
-                <span>Поставьте вторую и третью точки аналогичным способом. После этого третья точка соединяется с первой и образуется треугольник.</span>
+                <h4>Шаг 2: Настройка основных параметров ретранслятора</h4>
+                <ol class="list-decimal ml-6">
+                    <li>Укажите <strong>Имя</strong> ретранслятора (минимум 4 символа)</li>
+                    <li>Выберите <strong>Протокол</strong> ретрансляции из списка доступных</li>
+                    <li>Укажите <strong>Сервер</strong>, на который должны ретранслироваться данные</li>
+                    <li>При необходимости измените <strong>Порт</strong></li>
+                    <li>Заполните дополнительные поля, если они доступны для выбранного протокола:
+                        <ul class="list-disc ml-6">
+                            <li>ID диспетчера</li>
+                            <li>ID организации</li>
+                            <li>Логин и пароль</li>
+                            <li>Другие параметры</li>
+                        </ul>
+                    </li>
+                </ol>
+                <img src="./assets/w18.png" alt="Настройка ретранслятора" class="my-4 rounded shadow">
             </div>
             
             <div class="step">
-                <span class="step-number">3</span>
-                <span>Поставьте следующие точки внутри или вне треугольника, чтобы придать геозоне необходимую форму.</span>
-            </div>
-            
-            <div class="image-container">
-                <img src="https://help.wialon.com/ru/spaces/wialon-hosting/user-guide/monitoring-system/geofences/assets/polygon_ru.png" alt="Геозона-полигон">
-                <p class="image-caption">Рис. 8.3 — Создание геозоны типа «Полигон»</p>
-            </div>
-            
-            <h3>Создание геозоны типа «Линия»</h3>
-            
-            <div class="step">
-                <span class="step-number">1</span>
-                <span>Сделайте двойной щелчок по карте, чтобы поставить первую точку.</span>
+                <h4>Шаг 3: Выбор объектов для ретрансляции</h4>
+                <ol class="list-decimal ml-6">
+                    <li>В списке <strong>Все объекты</strong> выделите необходимые объекты</li>
+                    <li>Перенесите их в список <strong>Объекты для ретрансляции</strong> с помощью иконки переноса</li>
+                    <li>Для быстрого поиска объектов используйте фильтры над списками</li>
+                </ol>
+                <img src="./assets/w19.png" alt="Выбор объектов" class="my-4 rounded shadow">
+                <div class="alert alert-warning">
+                    <i class="fas fa-exclamation-triangle"></i> <strong>Важно:</strong> Сообщения от объектов с неуказанным уникальным ID не ретранслируются!
+                </div>
             </div>
             
             <div class="step">
-                <span class="step-number">2</span>
-                <span>Поставьте следующие точки аналогичным способом. Каждая последующая точка соединяется с предыдущей и образуется линия.</span>
-            </div>
-            
-            <div class="image-container">
-                <img src="https://help.wialon.com/ru/spaces/wialon-hosting/user-guide/monitoring-system/geofences/assets/line_ru.png" alt="Геозона-линия">
-                <p class="image-caption">Рис. 8.4 — Создание геозоны типа «Линия»</p>
-            </div>
-            
-            <h3>Создание геозоны типа «Круг»</h3>
-            
-            <div class="step">
-                <span class="step-number">1</span>
-                <span>Сделайте двойной щелчок по карте, чтобы поставить точку, которая должна быть центром геозоны.</span>
+                <h4>Шаг 4: Настройка идентификаторов объектов (при необходимости)</h4>
+                <p>Если на стороннем сервере идентификатор объекта отличается от уникального ID объекта в Wialon:</p>
+                <ol class="list-decimal ml-6">
+                    <li>Выделите объект в списке объектов для ретрансляции</li>
+                    <li>Отредактируйте его идентификатор в поле под списком</li>
+                </ol>
+                <img src="./assets/w20.png" alt="Настройка ID объектов" class="my-4 rounded shadow">
             </div>
             
             <div class="step">
-                <span class="step-number">2</span>
-                <span>В поле <strong>Радиус</strong> укажите радиус геозоны. По умолчанию он равен 100 м.</span>
-            </div>
-            
-            <div class="image-container">
-                <img src="https://help.wialon.com/ru/spaces/wialon-hosting/user-guide/monitoring-system/geofences/assets/circle_ru.png" alt="Геозона-круг">
-                <p class="image-caption">Рис. 8.5 — Создание геозоны типа «Круг»</p>
+                <h4>Шаг 5: Сохранение ретранслятора</h4>
+                <p>Нажмите на кнопку <strong>Сохранить</strong>, чтобы создать ретранслятор.</p>
             </div>
             
             <div class="step">
-                <span class="step-number">4</span>
-                <span>Укажите свойства геозоны:</span>
-                <ul class="ml-10 mt-2">
-                    <li><strong>Имя</strong> — название геозоны</li>
-                    <li><strong>Описание</strong> — дополнительная информация о геозоне</li>
-                    <li><strong>Цвет</strong> — цвет отображения геозоны на карте</li>
-                    <li>Дополнительные параметры (при необходимости)</li>
+                <h4>Шаг 6: Запуск ретрансляции</h4>
+                <p>Запустите созданный ретранслятор одним из способов:</p>
+                <ul class="list-disc ml-6">
+                    <li>Нажмите на иконку запуска (треугольник) рядом с ретранслятором в таблице</li>
+                    <li>Откройте свойства ретранслятора и нажмите на кнопку запуска</li>
                 </ul>
             </div>
             
             <div class="step">
-                <span class="step-number">5</span>
-                <span>Нажмите на <strong>Сохранить</strong>, чтобы сохранить геозону.</span>
+                <h4>Шаг 7: Ретрансляция данных за прошедший период (опционально)</h4>
+                <ol class="list-decimal ml-6">
+                    <li>В свойствах ретранслятора активируйте опцию <strong>Ретранслировать данные за прошедший период</strong> (доступна только для запущенных ретрансляторов)</li>
+                    <li>Укажите период, за который необходимо ретранслировать данные</li>
+                    <li>Нажмите на кнопку запуска справа от указанного периода</li>
+                </ol>
             </div>
             
-            <div class="success">
-                <p><strong>Совет:</strong> Для более точного создания геозон можно использовать функцию импорта из KML/KMZ файлов. Это особенно полезно, если у вас уже есть готовые контуры объектов, созданные в других программах.</p>
-            </div>
-        </section>
-        
-        <div class="section-separator"></div>
-        
-        <section id="calibration">
-            <h2>9. Внесение тарировок</h2>
-            
-            <p>Тарировка — это процесс калибровки датчика уровня топлива (ДУТ) для обеспечения точного соответствия между электрическими показаниями датчика и реальным объемом топлива в баке.</p>
-            
-            <h3>Процесс тарировки топливного бака</h3>
-            
-            <div class="step">
-                <span class="step-number">1</span>
-                <span>Опустошите топливный бак. Убедитесь, что аккумулятор автомобиля заряжен и не сядет во время тарировки.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">2</span>
-                <span>Если ДУТ еще не установлен, установите его согласно инструкции.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">3</span>
-                <span>На время тарировки настройте трекер таким образом, чтобы данные сохранялись не реже, чем раз в 10 секунд.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">4</span>
-                <span>Подготовьте таблицу из двух столбцов: X и Y. В столбце Y необходимо указывать объем топлива в баке, а в столбце X — соответствующее ему значение напряжения.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">5</span>
-                <span>Запишите время начала тарировки. Также можно записывать время добавления каждой части топлива, чтобы было проще находить соответствующие им сообщения в Wialon.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">6</span>
-                <span>В столбце X первой строки таблицы укажите значение напряжения до добавления топлива. В столбце Y этой строки укажите 0.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">7</span>
-                <span>Разделите весь объем бака на 10-20 частей.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">8</span>
-                <span>Залейте порцию топлива. В столбце Y укажите получившийся объем топлива в литрах. Подождите 2-3 минуты, чтобы уровень топлива выровнялся.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">9</span>
-                <span>Повторяйте действие из предыдущего пункта до заполнения всего бака.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">10</span>
-                <span>В Wialon возьмите несколько сообщений, сгенерированных спустя 2-3 минуты после добавления каждой части топлива. Найдите в них параметр со значением напряжения от ДУТ, рассчитайте средние значения и внесите их в столбец X.</span>
-            </div>
-            
-            <h3>Внесение тарировочной таблицы в систему</h3>
-            
-            <div class="step">
-                <span class="step-number">1</span>
-                <span>Откройте свойства объекта и перейдите на вкладку <strong>Датчики</strong>.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">2</span>
-                <span>Выберите датчик уровня топлива или создайте новый, если он еще не создан.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">3</span>
-                <span>Перейдите на вкладку <strong>Таблица расчета</strong>.</span>
-            </div>
-            
-            <div class="image-container">
-                <img src="https://help.wialon.com/ru/spaces/wialon-hosting/user-guide/monitoring-system/units/unit-properties/sensors/assets/e2_chart_ru.png" alt="Тарировочная таблица">
-                <p class="image-caption">Рис. 9.1 — Внесение тарировочной таблицы для ДУТ</p>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">4</span>
-                <span>Включите инструмент <strong>Пары XY</strong>.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">5</span>
-                <span>Внесите данные из подготовленной тарировочной таблицы: в левый столбец — значения X (показания датчика), в правый — значения Y (объем топлива в литрах).</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">6</span>
-                <span>При необходимости воспользуйтесь кнопкой <strong>График</strong> для визуальной проверки корректности введенных данных.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">7</span>
-                <span>Сохраните изменения, нажав кнопку <strong>Сохранить</strong>.</span>
-            </div>
-            
-            <div class="success">
-                <p><strong>Совет:</strong> После внесения тарировочной таблицы рекомендуется проверить точность измерений, сравнив показания датчика с реальным объемом топлива при контрольной заправке.</p>
+            <div class="alert alert-warning">
+                <i class="fas fa-exclamation-triangle"></i> <strong>Примечание:</strong> Для начала ретрансляции данных за прошедший период может потребоваться до 10 минут.
             </div>
         </section>
-        
-        <div class="section-separator"></div>
-        
-        <section id="retranslation">
-            <h2>10. Настройка ретрансляции</h2>
-            
-            <p>Ретрансляция позволяет передавать данные с объектов Wialon на другие серверы или системы мониторинга. Это может быть полезно, например, для интеграции с учетными системами клиента.</p>
-            
-            <div class="step">
-                <span class="step-number">1</span>
-                <span>В верхней панели управления откройте вкладку <strong>Администрирование</strong>.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">2</span>
-                <span>Выберите раздел <strong>Ретрансляторы</strong>.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">3</span>
-                <span>Нажмите на кнопку <strong>Создать ретранслятор</strong>.</span>
-            </div>
-            
-            <div class="image-container">
-                <img src="https://help.wialon.com/help/wialon-hosting/files/ru/28400178/28400181/2/1712231677058/retrans3_ru.png" alt="Создание ретранслятора">
-                <p class="image-caption">Рис. 10.1 — Создание ретранслятора в Wialon</p>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">4</span>
-                <span>Заполните основные поля:</span>
-                <ul class="ml-10 mt-2">
-                    <li><strong>Имя</strong> — название ретранслятора</li>
-                    <li><strong>Протокол</strong> — выберите протокол ретрансляции из списка доступных</li>
-                    <li><strong>Сервер</strong> — укажите адрес сервера, на который будут передаваться данные</li>
-                    <li><strong>Порт</strong> — при необходимости измените порт, указанный автоматически</li>
-                </ul>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">5</span>
-                <span>Заполните дополнительные поля, если они доступны для выбранного протокола (ID диспетчера, ID организации, авторизация, логин, пароль и др.).</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">6</span>
-                <span>Выберите объекты для ретрансляции. Для этого в списке <strong>Все объекты</strong> выделите необходимые и перенесите их в список <strong>Объекты для ретрансляции</strong>.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">7</span>
-                <span>Если на стороннем сервере идентификатор объекта отличается от уникального ID объекта в Wialon, укажите этот идентификатор.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">8</span>
-                <span>Нажмите на <strong>Сохранить</strong>.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">9</span>
-                <span>Запустите ретранслятор с помощью иконки воспроизведения в таблице результатов или аналогичной кнопки в его свойствах.</span>
-            </div>
-            
-            <div class="note">
-                <p><strong>Обратите внимание:</strong> Сообщения от объектов с неуказанным уникальным ID не ретранслируются, поэтому такие объекты не сохраняются в списке объектов для ретрансляции.</p>
-            </div>
-            
-            <div class="success">
-                <p><strong>Совет:</strong> При настройке ретрансляции на другой сервис Wialon Hosting используйте специальную запись вместо IP-адреса. Например, для hosting.wialon.com используйте запись hw.sig.</p>
-            </div>
-        </section>
-        
-        <div class="section-separator"></div>
-        
-        <section id="realtime">
-            <h2>11. Проверка результатов в реальном времени</h2>
-            
-            <p>После настройки всех компонентов системы необходимо убедиться, что они правильно работают в реальном времени.</p>
-            
-            <h3>Проверка местоположения и параметров объекта</h3>
-            
-            <div class="step">
-                <span class="step-number">1</span>
-                <span>Перейдите на вкладку <strong>Мониторинг</strong>.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">2</span>
-                <span>Выберите объект, который необходимо проверить.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">3</span>
-                <span>Проверьте, что объект отображается на карте в верном местоположении.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">4</span>
-                <span>Наведите курсор на объект, чтобы увидеть всплывающую подсказку с текущими значениями датчиков.</span>
-            </div>
-            
-            <h3>Проверка работы датчиков</h3>
-            
-            <div class="step">
-                <span class="step-number">1</span>
-                <span>Перейдите на вкладку <strong>Сообщения</strong>.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">2</span>
-                <span>Выберите объект и укажите период для запроса сообщений.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">3</span>
-                <span>Нажмите <strong>Выполнить</strong>.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">4</span>
-                <span>Проверьте наличие данных от всех настроенных датчиков в полученных сообщениях.</span>
-            </div>
-            
-            <h3>Проверка работы уведомлений</h3>
-            
-            <div class="step">
-                <span class="step-number">1</span>
-                <span>Вызовите искусственно событие, на которое настроено уведомление (например, въезд в геозону или превышение скорости).</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">2</span>
-                <span>Проверьте, что уведомление сработало и доставлено указанным способом (email, SMS, всплывающее окно и т.д.).</span>
-            </div>
-            
-            <h3>Проверка отчетов</h3>
-            
-            <div class="step">
-                <span class="step-number">1</span>
-                <span>Перейдите на вкладку <strong>Отчеты</strong>.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">2</span>
-                <span>Выберите созданный шаблон отчета и объект.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">3</span>
-                <span>Укажите период формирования отчета.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">4</span>
-                <span>Нажмите <strong>Выполнить</strong>.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">5</span>
-                <span>Проверьте, что отчет содержит все необходимые данные и корректно отображает информацию.</span>
-            </div>
-            
-            <h3>Проверка ретрансляции</h3>
-            
-            <div class="step">
-                <span class="step-number">1</span>
-                <span>Убедитесь, что ретранслятор запущен (имеет статус «Запущен»).</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">2</span>
-                <span>Проверьте получение данных на стороннем сервере.</span>
-            </div>
-            
-            <div class="step">
-                <span class="step-number">3</span>
-                <span>Убедитесь, что все необходимые параметры и сообщения передаются корректно.</span>
-            </div>
-            
-            <div class="success">
-                <p><strong>Совет:</strong> Рекомендуется проводить комплексную проверку работы системы после любых значительных изменений в настройках объектов, датчиков, отчетов или уведомлений.</p>
-            </div>
-        </section>
-        
-        <div class="section-separator"></div>
-        
-        <section id="test">
-            <h2>12. Проверочный тест</h2>
-            
-            <p>После изучения данной инструкции вам предстоит пройти проверочный тест из 5 вопросов, который поможет оценить уровень усвоения материала и готовность к работе с системой Wialon.</p>
-            
-            <div class="note">
-                <p><strong>Что вас ждет на тесте:</strong></p>
-                <ul>
-                    <li>5 вопросов по основным аспектам работы с системой Wialon</li>
-                    <li>Вопросы о создании объектов, настройке датчиков, отчетов, уведомлений и геозон</li>
-                    <li>Практические задания по работе с системой</li>
-                </ul>
-            </div>
-            
-            <p>Тест поможет проверить, насколько хорошо вы усвоили материал и готовы ли применять полученные знания на практике.</p>
-            
-            <div class="success">
-                <p><strong>Совет перед тестом:</strong> Если какие-то темы остались непонятными, вернитесь к соответствующим разделам инструкции и внимательно изучите их еще раз. Также рекомендуется попрактиковаться в системе перед прохождением теста.</p>
-            </div>
-            
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3_pdzjYS5c5OktlhdrdHVNbUD5ui13qCGU_BHIepguMAenA/viewform?usp=header" class="cta-button block w-full text-center my-8 py-4" target="_blank">Пройти проверочный тест</a>
-            
-            <p class="text-center mt-8">Желаем успехов в изучении системы Wialon и прохождении теста!</p>
-        </section>
-        
-        <footer class="mt-16 pt-8 border-t border-gray-200 text-center text-gray-600">
-            <p>© 2023 Инструкция по работе с системой Wialon</p>
-            <p class="mt-2">При возникновении вопросов обращайтесь к руководителю или специалисту службы технической поддержки.</p>
+
+        <footer class="mt-10 py-6 border-t border-gray-200 text-center text-gray-500">
+            <p>© 2025 Справочный центр Wialon | Пошаговая инструкция для нового сотрудника</p>
         </footer>
     </div>
 </body>
